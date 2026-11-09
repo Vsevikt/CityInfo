@@ -35,7 +35,7 @@
 <section class="welcome-strip">
     <span class="welcome-mark" aria-hidden="true">W</span>
     <p><strong>{{ page.welcome_title }}</strong></p>
-    <a class="text-link" href="{% url 'history' %}">{{ page.history_link }} <span aria-hidden="true">?</span></a>
-    <a class="text-link" href="{% url 'history_people' %}">{{ page.people_link }} <span aria-hidden="true">?</span></a>
+    <a class="text-link" href="{% url 'history' %}">{{ page.history_link }} <span aria-hidden="true"></span></a>
+    <a class="text-link" href="{% url 'history_people' %}">{{ page.people_link }} <span aria-hidden="true"></span></a>
 </section>
 {% endblock %}
