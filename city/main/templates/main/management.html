@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}City Leadership — Warsaw{% endblock %}
+
+{% block content %}
+<section class="page-intro">
+    <div class="eyebrow"><span class="eyebrow-line"></span>PEOPLE AND PROGRESS</div>
+    <h1>City <span>leadership.</span></h1>
+    <p>Meet the people working with Warsaw residents to shape the capital’s future and keep the city moving.</p>
+</section>
+
+<section class="content-section">
+    <div class="section-heading">
+        <div>
+            <span class="section-kicker">WARSAW CITY HALL</span>
+            <h2>Your city team</h2>
+        </div>
+        <span class="section-count">Serving Warsaw</span>
+    </div>
+
+    <div class="people-grid">
+        {% for official in officials %}
+        <article class="person-card">
+            <div class="person-avatar">
+                <img src="{{ official.photo }}" alt="Portrait of {{ official.name }}" loading="lazy">
+                <span>{{ official.initials }}</span>
+            </div>
+            <a class="photo-credit" href="{{ official.photo_credit }}" target="_blank" rel="noopener noreferrer">Image source</a>
+            <p class="person-role">{{ official.role }}</p>
+            <h3>{{ official.name }}</h3>
+            <p class="person-description">{{ official.description }}</p>
+            <a class="card-link" href="{% url 'contacts' %}">City contacts <span aria-hidden="true">→</span></a>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="welcome-strip">
+    <span class="welcome-mark" aria-hidden="true">W</span>
+    <p><strong>An open city starts with a conversation.</strong> Warsaw is here to listen.</p>
+    <a class="text-link" href="{% url 'contacts' %}">Contact us <span aria-hidden="true">→</span></a>
+</section>
+{% endblock %}

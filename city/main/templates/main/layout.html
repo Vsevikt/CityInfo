@@ -1,0 +1,55 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fffafa">
+    <meta name="description" content="Discover Warsaw: city news, local leadership, facts and useful public service contacts.">
+
+    <title>{% block title %}Warsaw — A city in motion{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+
+<body>
+    <div class="site-shell">
+        <header class="site-header">
+            <a class="brand" href="{% url 'home' %}" aria-label="Warsaw — home">
+                <span class="brand-mark" aria-hidden="true">W</span>
+                <span class="brand-copy">
+                    <strong>Warsaw</strong>
+                    <span>OFFICIAL CITY GUIDE</span>
+                </span>
+            </a>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <a class="nav-link{% if active_page == 'home' %} is-active{% endif %}" href="{% url 'home' %}"{% if active_page == 'home' %} aria-current="page"{% endif %}>Home</a>
+                <a class="nav-link{% if active_page == 'news' %} is-active{% endif %}" href="{% url 'news' %}"{% if active_page == 'news' %} aria-current="page"{% endif %}>City news</a>
+                <a class="nav-link{% if active_page == 'management' %} is-active{% endif %}" href="{% url 'management' %}"{% if active_page == 'management' %} aria-current="page"{% endif %}>Leadership</a>
+                <a class="nav-link{% if active_page == 'facts' %} is-active{% endif %}" href="{% url 'facts' %}"{% if active_page == 'facts' %} aria-current="page"{% endif %}>Discover</a>
+                <a class="nav-link{% if active_page == 'history' %} is-active{% endif %}" href="{% url 'history' %}"{% if active_page == 'history' %} aria-current="page"{% endif %}>History</a>
+                <a class="nav-link{% if active_page == 'contacts' %} is-active{% endif %}" href="{% url 'contacts' %}"{% if active_page == 'contacts' %} aria-current="page"{% endif %}>Contacts</a>
+            </nav>
+
+            <a class="header-location" href="{% url 'contacts' %}">
+                <span class="location-dot" aria-hidden="true"></span>
+                <span>Warsaw, Poland</span>
+            </a>
+        </header>
+
+        <main id="main-content">
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <a class="footer-brand" href="{% url 'home' %}">Warsaw<span>.</span></a>
+            <p>A capital with a bold spirit and an open heart.</p>
+            <span class="footer-note">Made for the city and its people</span>
+        </footer>
+    </div>
+</body>
+</html>

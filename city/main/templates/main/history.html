@@ -1,0 +1,39 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block content %}
+<section class="page-intro">
+    <div class="eyebrow"><span class="eyebrow-line"></span>{{ page.eyebrow }}</div>
+    <h1>{{ page.heading_first }} <span>{{ page.heading_second }}</span></h1>
+    <p>{{ page.intro }}</p>
+</section>
+
+<section class="content-section">
+    <div class="section-heading">
+        <div>
+            <span class="section-kicker">{{ page.section_kicker }}</span>
+            <h2>{{ page.section_heading }}</h2>
+        </div>
+        <span class="section-count">{{ page.section_count }}</span>
+    </div>
+
+    <div class="facts-grid">
+        {% for item in milestones %}
+        <article class="fact-card">
+            <img class="fact-image" src="{{ item.image }}" alt="{{ item.image_alt }}" loading="lazy">
+            <strong class="fact-number">{{ item.period }}</strong>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+        </article>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="welcome-strip">
+    <span class="welcome-mark" aria-hidden="true">W</span>
+    <p><strong>{{ page.welcome_title }}</strong> {{ page.welcome_text }}</p>
+    <a class="text-link" href="{% url 'history_people' %}">{{ page.people_link }} <span aria-hidden="true">?</span></a>
+    <a class="text-link" href="{% url 'history_photos' %}">{{ page.photos_link }} <span aria-hidden="true">?</span></a>
+</section>
+{% endblock %}
