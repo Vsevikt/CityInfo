@@ -17,16 +17,13 @@
         </div>
         <span class="section-count">{{ page.section_count }}</span>
     </div>
-    <div class="news-grid">
+    <div class="facts-grid">
         {% for photo in photos %}
-        <article class="news-card">
-            <a class="history-photo-image" href="{{ photo.source }}" target="_blank" rel="noopener noreferrer">
-                <img src="{{ photo.image }}" alt="{{ photo.image_alt }}" loading="lazy">
-            </a>
-            <p class="news-date">{{ photo.date }}</p>
+        <article class="fact-card">
+            <img class="fact-image" src="{{ photo.image }}" alt="{{ photo.image_alt }}" loading="lazy">
+            <strong class="fact-number">{{ photo.date }}</strong>
             <h3>{{ photo.title }}</h3>
-            <p class="news-text">{{ photo.text }}</p>
-            <a class="card-link" href="{{ photo.source }}" target="_blank" rel="noopener noreferrer">{{ page.photo_credit }} <span aria-hidden="true">?</span></a>
+            <p>{{ photo.text }}</p>
         </article>
         {% endfor %}
     </div>
